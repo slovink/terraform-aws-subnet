@@ -58,7 +58,7 @@ Inputs
 Name	Description	Type	Default	Required
 assign_ipv6_address_on_creation	Specify true to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address.	bool	false	no
 attributes	Additional attributes (e.g. 1).	list(any)	[]	no
-availability_zones	List of Availability Zones (e.g. ['us-east-1a', 'us-east-1b', 'us-east-1c']).	list(string)	[]	no
+availability_zones	List of Availability Zones (e.g. ['ap-south-1a', 'ap-south-1b']).	list(string)	[]	no
 az_ngw_count	Count of items in the az_ngw_ids map. Needs to be explicitly provided since Terraform currently can't use dynamic count on computed resources from different modules. hashicorp/terraform#10857.	number	0	no
 az_ngw_ids	Only for private subnets. Map of AZ names to NAT Gateway IDs that are used as default routes when creating private subnets.	map(string)	{}	no
 cidr_block	Base CIDR block which is divided into subnet CIDR blocks 	string	n/a	yes
