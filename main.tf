@@ -35,7 +35,7 @@ module "public-labels" {
 }
 
 module "database-labels" {
-  source = "git@github.com:slovink/terraform-aws-labels.git?ref=1.0.0"
+  source = "git@github.com:slovink/terraform-aws-labels.git?ref=1.0.0gi"
   #  version     = "1.0.1"
   repository  = var.repository
   environment = var.environment

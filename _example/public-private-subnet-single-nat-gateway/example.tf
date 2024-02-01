@@ -6,7 +6,7 @@ provider "aws" {
 ## Vpc Module call.
 ##-----------------------------------------------------------------------------
 module "vpc" {
-  source      = "git@github.com:slovink/terraform-aws-vpc.git?ref=vinod"
+  source      = "git@github.com:slovink/terraform-aws-vpc.git?ref=1.0.0"
   name        = "app"
   environment = "test"
   cidr_block  = "10.0.0.0/16"
