@@ -289,13 +289,11 @@ resource "aws_route_table" "private-rt" {
     }
   )
 }
-
 resource "aws_route_table_association" "private" {
   count          = local.private_count
   subnet_id      = element(aws_subnet.private_sub[*].id, count.index)
   route_table_id = element(aws_route_table.private-rt[*].id, var.single_nat_gateway ? 0 : count.index, )
 }
-
 resource "aws_route" "nat_gateway" {
   count                  = local.nat_gateway_count > 0 ? local.nat_gateway_count : 0
   route_table_id         = element(aws_route_table.private-rt[*].id, count.index)
@@ -364,7 +362,6 @@ resource "aws_flow_log" "private_subnet_flow_log" {
     }
   )
 }
-
 
 ##################database
 ##-----------------------------------------------------------------------------

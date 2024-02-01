@@ -86,7 +86,7 @@ If you have found it worth your time, go ahead and give us a ★ on [our GitHub]
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_database-labels"></a> [database-labels](#module\_database-labels) | git@github.com:slovink/terraform-aws-labels.git | 1.0.0 |
+| <a name="module_database-labels"></a> [database-labels](#module\_database-labels) | git@github.com:slovink/terraform-aws-labels.git | 1.0.0gi |
 | <a name="module_private-labels"></a> [private-labels](#module\_private-labels) | git@github.com:slovink/terraform-aws-labels.git | 1.0.0 |
 | <a name="module_public-labels"></a> [public-labels](#module\_public-labels) | git@github.com:slovink/terraform-aws-labels.git | 1.0.0 |
 
