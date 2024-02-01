@@ -401,6 +401,7 @@ resource "aws_subnet" "database" {
 ## Below resource will deploy network acl and its rules that will be attached to public subnets.
 ##-----------------------------------------------------------------------------
 
+
 #tfsec:ignore:aws-ec2-no-excessive-port-access
 resource "aws_network_acl" "database" {
   count      = var.enable && local.database_count > 0 && var.enable_database_acl && (var.type == "database" || var.type == "public-private-database") ? 1 : 0
