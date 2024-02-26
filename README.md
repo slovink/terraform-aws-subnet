@@ -57,7 +57,7 @@ This module has a few dependencies:
 Here is an example of how you can use this module in your inventory structure:
   ```hcl
 module "subnets" {
-  source      = "./../"
+  source      = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
   name        = "subnet"
   environment = var.environment
   label_order = var.label_order
