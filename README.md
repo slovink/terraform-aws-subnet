@@ -24,10 +24,10 @@
 </p>
 <p align="center">
 
-<a href='https://www.facebook.com/Slovink.in=https://github.com/slovink/terraform-lables'>
+<a href='https://www.facebook.com/Slovink.in=https://github.com/slovink/terraform-subnet'>
   <img title="Share on Facebook" src="https://user-images.githubusercontent.com/50652676/62817743-4f64cb80-bb59-11e9-90c7-b057252ded50.png" />
 </a>
-<a href='https://www.linkedin.com/company/101534993/admin/feed/posts/=https://github.com/slovink/terraform-lables'>
+<a href='https://www.linkedin.com/company/101534993/admin/feed/posts/=https://github.com/slovink/terraform-subnet'>
   <img title="Share on LinkedIn" src="https://user-images.githubusercontent.com/50652676/62817742-4e339e80-bb59-11e9-87b9-a1f68cae1049.png" />
 </a>
 
