@@ -53,21 +53,104 @@ This module has a few dependencies:
 **IMPORTANT:** Since the `master` branch used in `source` varies based on new modifications, we suggest that you use the release versions [here](https://github.com/clouddrove/terraform-aws-subnet/releases).
 
 
-### Simple Example
-Here is an example of how you can use this module in your inventory structure:
-  ```hcl
-module "subnets" {
-  source      = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
-  name        = "subnet"
-  environment = var.environment
-  label_order = var.label_order
+### Example: database-subnet
 
-  availability_zones = ["eu-west-1a", "eu-west-1b"]
-  vpc_id             = module.vpc.vpc_id
+  ```hcl
+module "subnet" {
+  source             = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  name               = "app"
+  environment        = "test"
+  availability_zones = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  vpc_id             = module.vpc.id
+  cidr_block         = "10.0.192.0/18"
+  type               = "database"
+}
+```
+
+# Example: private-subnet
+```hcl
+module "private-subnets" {
+  source              = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  name                = "app"
+  environment         = "test"
+  nat_gateway_enabled = true
+  availability_zones  = ["eu-west-1a"]
+  vpc_id              = module.vpc.id
+  type                = "private"
+  cidr_block          = module.vpc.vpc_cidr_block
+  ipv6_cidr_block     = module.vpc.ipv6_cidr_block
+  ipv4_private_cidrs  = ["10.0.30.0/24"]
+  public_subnet_ids   = module.private-subnets.private_subnet_id
+}
+ ```
+# Example: public-private
+```hcl
+module "subnets" {
+  source                                         = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  name                                           = "app"
+  environment                                    = "test"
+  nat_gateway_enabled                            = true
+  availability_zones                             = ["eu-west-1a", "eu-west-1b"]
+  vpc_id                                         = module.vpc.id
+  type                                           = "public-private"
+  igw_id                                         = module.vpc.igw_id
+  cidr_block                                     = module.vpc.vpc_cidr_block
+  ipv6_cidr_block                                = module.vpc.ipv6_cidr_block
+  public_subnet_assign_ipv6_address_on_creation  = true
+  enable_ipv6                                    = true
+  private_subnet_assign_ipv6_address_on_creation = true
+}
+```
+
+# Example: public-private-database-subnet
+```hcl
+
+module "subnet" {
+  source              = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  name                = "app"
+  environment         = "test"
+  availability_zones  = ["eu-west-1a", "eu-west-1b", ]
+  vpc_id              = module.vpc.id
+  type                = "public-private-database"
+  nat_gateway_enabled = true
+  single_nat_gateway  = true
+  cidr_block          = module.vpc.vpc_cidr_block
+  ipv6_cidr_block     = module.vpc.ipv6_cidr_block
+  igw_id              = module.vpc.igw_id
+}
+```
+
+# Example:  public-private-subnet-single-nat-gateway
+```hcl
+
+module "subnets" {
+  source              = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  name                = "app"
+  environment         = "test"
+  nat_gateway_enabled = true
+  single_nat_gateway  = true
+  availability_zones  = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  vpc_id              = module.vpc.id
+  type                = "public-private"
+  igw_id              = module.vpc.igw_id
+  cidr_block          = module.vpc.vpc_cidr_block
+  ipv6_cidr_block     = module.vpc.ipv6_cidr_block
+  enable_ipv6         = false
+}
+```
+# Example:   public-subnet
+```hcl
+
+module "subnet" {
+  source             = "./../.."
+  name               = "app"
+  environment        = "test"
+  availability_zones = ["eu-west-1a", "eu-west-1b", ]
   type               = "public"
-  igw_id             = module.vpc.igw_id
+  vpc_id             = module.vpc.id
   cidr_block         = module.vpc.vpc_cidr_block
-  ipv6_cidr_block    = module.vpc.ipv6_cidr_block
+  igw_id             = module.vpc.igw_id
+  enable_ipv6        = false
 }
   ```
 
