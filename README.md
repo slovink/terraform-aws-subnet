@@ -62,7 +62,7 @@ module "subnets" {
   environment = var.environment
   label_order = var.label_order
 
-  availability_zones = ["ap-south-1a", "ap-south-1b"]
+  availability_zones = ["eu-west-1a", "eu-west-1b"]
   vpc_id             = module.vpc.vpc_id
   type               = "public"
   igw_id             = module.vpc.igw_id
