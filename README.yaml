@@ -4,7 +4,7 @@
 #
 
 # Name of this project
-name : Terraform subnet
+name : Terraform Subnet
 
 # License of this project
 license: "APACHE"
@@ -43,7 +43,7 @@ usage : |-
   ```hcl
 
     module "subnet" {
-      source                = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+      source                = "https://github.com/slovink/terraform-aws-subnet.git?ref=v1.0.0"
       name                  = "yada"
       environment           = "test"
       cidr_block            = "10.0.0.0/16"

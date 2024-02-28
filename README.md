@@ -57,7 +57,7 @@ This module has a few dependencies:
 
   ```hcl
 module "subnet" {
-  source             = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  source             = "https://github.com/slovink/terraform-aws-subnet.git?ref=v1.0.0"
   name               = "app"
   environment        = "test"
   availability_zones = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
@@ -70,7 +70,7 @@ module "subnet" {
 # Example: private-subnet
 ```hcl
 module "private-subnets" {
-  source              = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  source              = "https://github.com/slovink/terraform-aws-subnet.git?ref=v1.0.0"
   name                = "app"
   environment         = "test"
   nat_gateway_enabled = true
@@ -86,7 +86,7 @@ module "private-subnets" {
 # Example: public-private
 ```hcl
 module "subnets" {
-  source                                         = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  source                                         = "https://github.com/slovink/terraform-aws-subnet.git?ref=v1.0.0"
   name                                           = "app"
   environment                                    = "test"
   nat_gateway_enabled                            = true
@@ -106,7 +106,7 @@ module "subnets" {
 ```hcl
 
 module "subnet" {
-  source              = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  source              = "https://github.com/slovink/terraform-aws-subnet.git?ref=v1.0.0"
   name                = "app"
   environment         = "test"
   availability_zones  = ["eu-west-1a", "eu-west-1b", ]
@@ -124,7 +124,7 @@ module "subnet" {
 ```hcl
 
 module "subnets" {
-  source              = "git@github.com:slovink/terraform-aws-subnet.git?ref=v1.0.0"
+  source              = "https://github.com/slovink/terraform-aws-subnet.git?ref=v1.0.0"
   name                = "app"
   environment         = "test"
   nat_gateway_enabled = true
@@ -142,7 +142,7 @@ module "subnets" {
 ```hcl
 
 module "subnet" {
-  source             = "./../.."
+  source             = "https://github.com/slovink/terraform-aws-subnet.git?ref=v1.0.0"
   name               = "app"
   environment        = "test"
   availability_zones = ["eu-west-1a", "eu-west-1b", ]
